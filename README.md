@@ -19,3 +19,24 @@ OR
     cargo rustc -- -C link-args="/ENTRY:_start /SUBSYSTEM:console"
 # macOS
     cargo rustc -- -C link-args="-e __start -static -nostartfiles"
+
+Because we need to use some attributes of the NIGHTLY edition therefore we need to install nighty and active it through the following instruct:
+
+rustup toolchain install nightly
+
+rustup override set nightly
+
+rustup update
+
+Using the instruct "rustc --version" to check whether swith to nightly mode successfully.
+
+To recompile libraries(core, compiler_builtins), cargo needs access to the rust source code, which we can install with rustup component add rust-src, which we can install with:
+
+rustup component add rust-src
+
+
+
+# bootimage
+cargo install bootimage
+# llvm-tools-preview
+rustup component add llvm-tools-preview
